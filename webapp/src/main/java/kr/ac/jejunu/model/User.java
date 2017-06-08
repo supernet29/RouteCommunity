@@ -1,8 +1,10 @@
 package kr.ac.jejunu.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -13,19 +15,29 @@ import java.util.Set;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
+    @NotNull
+    @Column(name = "name", unique = true)
     private String name;
+    @NotNull
+    @NotEmpty
+    @Column(name = "password")
     private String password;
+    @NotNull
+    @Column(name = "email",unique = true)
     private String email;
+    private String imageUrl;
 
     public User() {
     }
 
-    public User(Long id, String name, String password, String email) {
+    public User(Long id, String name, String password, String email, String imageUrl) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.email = email;
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -74,5 +86,13 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
