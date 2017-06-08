@@ -3,8 +3,8 @@ spring:
     cache: false
     suffix: .jsp
   datasource:
-    url: jdbc:mysql://localhost/jeju?characterEncoding=utf-8
-    username: jeju
-    password: jejupw
+    url: jdbc:mysql://117.17.102.106/woochan?characterEncoding=utf-8
+    username: root
+    password: 1234
     driver-class-name: com.mysql.jdbc.Driver
 

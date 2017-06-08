@@ -10,14 +10,6 @@ import org.springframework.web.servlet.view.xml.MarshallingView;
 
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter{
-
-//    @Override
-//    public void configureViewResolvers(ViewResolverRegistry registry) {
-//        registry.enableContentNegotiation(new MappingJackson2JsonView());
-//        registry.enableContentNegotiation(new MarshallingView(new CastorMarshaller()));
-//        registry.jsp().prefix("/WEB-INF/views/");
-//
-//    }
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
