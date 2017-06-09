@@ -16,15 +16,17 @@ public class Comment {
 
     @ManyToOne
     @NotNull
+    @JoinColumn(name="writer")
     private User writer;
 
+    @Column(name="comment")
     private String content;
 
     public Comment() {
     }
 
-    public Comment(Long id, User writer, String content) {
-        this.id = id;
+    public Comment(Document document, User writer, String content) {
+        this.document = document;
         this.writer = writer;
         this.content = content;
     }

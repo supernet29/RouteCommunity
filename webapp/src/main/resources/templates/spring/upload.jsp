@@ -5,7 +5,8 @@
     <input type="file" name="file" />
     <input type="submit"/>
 </form>
-<img th:src="${url}" />
+<p th:text="${url}">url</p>
+<img src = "url" th:attr="src=@{${url}}"/>
 
 </body>
 </html>
