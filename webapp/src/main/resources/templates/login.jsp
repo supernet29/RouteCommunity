@@ -7,10 +7,10 @@
     <main>
         <form action="/login" method="post">
             <ul>
-                <li><span>name</span><input type="text" name="name"/></li>
-                <li><span>password</span><input type="text" name="password"/></li>
+                <li><span>name</span> <input type="text" name="name"/></li>
+                <li><span>password</span> <input type="password" name="password"/></li>
             </ul>
-            <input type="submit"/>
+            <input type="submit"/> <span><a href="/">Goto Main</a></span>
         </form>
     </main>
 </body>

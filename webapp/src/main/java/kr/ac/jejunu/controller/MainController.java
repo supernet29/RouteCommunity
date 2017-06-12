@@ -32,11 +32,18 @@ public class MainController {
     public String mainPage(@SessionAttribute(required = false) User user, Model model){
         User userinfo;
         String defaultImage = "/귤.jpeg";
+        String accountUrl;
+        String accountText;
         if(user == null) {
             userinfo = new User("Please Login", null, null, defaultImage);
+            accountText="Login";
+            accountUrl="/login";
         }
-        else
+        else {
             userinfo = user;
+            accountText="Logout";
+            accountUrl="/logout";
+        }
 
         if(userinfo.getImageUrl() == null)
             userinfo.setImageUrl(defaultImage);
@@ -44,6 +51,8 @@ public class MainController {
         List<Document> documents = repository.findAll();
         model.addAttribute("user", userinfo);
         model.addAttribute("documents", documents);
+        model.addAttribute("accountUrl", accountUrl);
+        model.addAttribute("accountText", accountText);
         return "main";
     }
 }

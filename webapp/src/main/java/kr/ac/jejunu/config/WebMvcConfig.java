@@ -13,6 +13,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter{
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         super.addInterceptors(registry);
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/request");
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/document")
+                .addPathPatterns("/document/*/comment")
+                .addPathPatterns("/document/*/remove");
     }
 }

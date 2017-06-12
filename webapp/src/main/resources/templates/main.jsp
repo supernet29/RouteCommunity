@@ -21,12 +21,12 @@
                 <tbody>
                     <tr th:each="document : ${documents}">
                         <td th:text="${document.id}">id</td>
-                        <td th:text="${document.title}">id</td>
+                        <td ><a href="#" th:href="@{/document/{id}(id=${document.id})}" th:text="${document.title}">id</a></td>
                         <td th:text="${document.writer.name}">id</td>
                     </tr>
                 </tbody>
             </table>
-            <p><a href="/write">New Document</a></p>
+            <p><a href="/document">New Document</a></p>
         </div>
     </main>
     <sub>
@@ -36,8 +36,8 @@
         </div>
         <div class="navigation">
             <ul>
-                <li><a href="/login">Login</a></li>
-                <li><a href="/">Community</a></li>
+                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
+                <li><a href="/register">Register</a></li>
             </ul>
         </div>
     </sub>
