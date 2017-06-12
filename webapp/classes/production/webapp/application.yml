@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    cache: false
+    suffix: .jsp
+  datasource:
+    url: jdbc:mysql://117.17.102.106/RouteCommunity?characterEncoding=utf-8
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+

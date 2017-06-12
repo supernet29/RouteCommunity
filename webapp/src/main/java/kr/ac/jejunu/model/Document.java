@@ -30,15 +30,17 @@ public class Document implements Serializable{
     @ManyToOne
     @JoinColumn(name="writer")
     private User writer;
+    private String title;
     private String content;
 
     public Document() {
     }
 
-    public Document(Position source, Position destination, User writer, String content) {
+    public Document(Position source, Position destination, User writer, String title, String content) {
         this.source = source;
         this.destination = destination;
         this.writer = writer;
+        this.title = title;
         this.content = content;
     }
 
@@ -97,5 +99,13 @@ public class Document implements Serializable{
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

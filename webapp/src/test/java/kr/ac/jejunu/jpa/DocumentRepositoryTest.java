@@ -5,8 +5,6 @@ import kr.ac.jejunu.model.Position;
 import kr.ac.jejunu.model.User;
 import kr.ac.jejunu.repository.DocumentRepository;
 import kr.ac.jejunu.repository.UserRepository;
-import org.hamcrest.beans.SamePropertyValuesAs;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +50,7 @@ public class DocumentRepositoryTest {
     @Test
     public void getDocuemntByWriter() throws Exception{
         User user = userRepository.findOne(1L);
-        List<Document> documents =  documentRepository.findByWriter(user);
+        List<Document> documents =  documentRepository.findAllByWriter(user);
         assertThat(documents.size(), is(1));
     }
 
@@ -61,9 +59,16 @@ public class DocumentRepositoryTest {
         User user = userRepository.findOne(1L);
         Position source = new Position(1, 2);
         Position destination = new Position(3, 4);
-        String hello = "hello";
-        Document document = new Document(source, destination, user, hello);
+        String content = "content";
+        String title = "test";
+        Document document = new Document(source, destination, user, title,content);
 
         documentRepository.save(document);
+    }
+
+    @Test
+    public void getAllDocument() throws Exception{
+        List<Document>documents = documentRepository.findAll();
+        assertThat(documents.size(), is(1));
     }
 }

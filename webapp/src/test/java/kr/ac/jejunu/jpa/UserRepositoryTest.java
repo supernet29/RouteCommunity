@@ -69,7 +69,7 @@ public class UserRepositoryTest {
         String name = "Hello";
         String password = "1234";
         String email = "hello@test.com";
-        User user = new User(null, name, password, email, null);
+        User user = new User(name, password, email, null);
         userRepository.save(user);
 
         user = userRepository.findByName(name);
