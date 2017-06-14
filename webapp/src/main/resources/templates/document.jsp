@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/Sub.css"/>
     <title th:text="@{Document : {name}(name=${document.title})}">Document : name</title>
 </head>
 <body>

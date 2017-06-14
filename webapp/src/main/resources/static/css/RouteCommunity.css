@@ -5,7 +5,6 @@ body{
 header, sub{
     position: fixed;
     display: inline-block;
-    border-bottom: black 1px solid;
 }
 
 header {
@@ -15,14 +14,17 @@ header {
     height: 70px;
     padding: 10px;
     background : wheat;
+    border-bottom: black 1px solid;
 }
 
 sub {
     z-index:2;
+    top:90.8px;
     left:0;
     width:300px;
     height:100%;
     background : lightyellow;
+    border-right: black 1px solid;
 }
 
 main{

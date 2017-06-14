@@ -1,0 +1,21 @@
+.userinfo > img{
+    margin-left: 20px;
+    width : 250px;
+    max-height: 500px;
+}
+
+.userinfo > p{
+    text-align: center;
+}
+
+.navigation > ul{
+    list-style-type: none;
+}
+
+.navigation a{
+    font-size:20pt;
+}
+
+.navigation li{
+    margin : 7px 0;
+}
