@@ -1,0 +1,9 @@
+
+.document_list > table{
+    width:100%;
+    min-width:300px;
+}
+
+.document_list > table, .document_list  th, .document_list  td{
+   border: 1px solid black;
+}

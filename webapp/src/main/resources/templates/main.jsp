@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
     <link rel="stylesheet" type="text/css" href="/css/Sub.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/MainList.css"/>
     <title>RouteCommunity</title>
 </head>
 <body>
@@ -24,6 +25,7 @@
         </div>
     </sub>
     <main>
+        <h2>Document List</h2>
         <div class="document_list">
             <table>
                 <thead>
