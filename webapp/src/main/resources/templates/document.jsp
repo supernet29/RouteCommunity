@@ -4,6 +4,9 @@
     <meta charset="UTF-8"/>
 </head>
 <body>
+    <header>
+        <h1>Route Community</h1>
+    </header>
     <main>
         <div class="document">
             <div class="info">
@@ -29,9 +32,19 @@
                 <input type="submit" value="Submit"/>
             </form>
         </div>
-    </main>
-    <nav>
         <p><a href="/">Goto Main</a></p>
-    </nav>
+    </main>
+    <sub>
+        <div class = "userinfo">
+            <img src="/귤.jpeg" th:attr="src=${user.imageUrl}" />
+            <p class="name" th:text="${user.name}">Please login.</p>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </div>
+    </sub>
 </body>
 </html>

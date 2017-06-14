@@ -1,5 +1,6 @@
 package kr.ac.jejunu.controller;
 
+import kr.ac.jejunu.controller.util.LoginStatusContext;
 import kr.ac.jejunu.model.Comment;
 import kr.ac.jejunu.model.Document;
 import kr.ac.jejunu.model.Position;
@@ -8,6 +9,7 @@ import kr.ac.jejunu.repository.CommentRepository;
 import kr.ac.jejunu.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +25,12 @@ public class DocumentController {
     private DocumentRepository documentRepository;
     @Autowired
     private CommentRepository commentRepository;
+    @Autowired
+    private LoginStatusContext loginStatusContext;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String writeView(){
+    public String writeView(@SessionAttribute(required = false) User user,  Model model){
+        loginStatusContext.setUserInformation(user, model);
         return "documentWrite";
     }
 
@@ -43,8 +48,9 @@ public class DocumentController {
     }
 
     @RequestMapping(value = "/{documentId}", method = RequestMethod.GET)
-    public String viewDocument(@PathVariable String documentId, ModelMap model){
+    public String viewDocument(@SessionAttribute(required = false)User user, @PathVariable String documentId, Model model){
         try {
+            loginStatusContext.setUserInformation(user, model);
             Long id = Long.parseLong(documentId);
             Document document = documentRepository.findOne(id);
             List<Comment> comments = commentRepository.findByDocument(document);

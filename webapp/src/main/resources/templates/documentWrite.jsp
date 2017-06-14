@@ -2,8 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <title> Write Document </title>
 </head>
 <body>
+    <header>
+        <h1>Route Community</h1>
+    </header>
     <main>
         <div class="document">
             <form action = "/document" method="post">
@@ -21,5 +25,17 @@
             </form>
         </div>
     </main>
+    <sub>
+        <div class = "userinfo">
+            <img src="/귤.jpeg" th:attr="src=${user.imageUrl}" />
+            <p class="name" th:text="${user.name}">Please login.</p>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </div>
+    </sub>
 </body>
 </html>

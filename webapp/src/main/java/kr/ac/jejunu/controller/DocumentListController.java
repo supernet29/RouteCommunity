@@ -1,5 +1,6 @@
 package kr.ac.jejunu.controller;
 
+import kr.ac.jejunu.controller.util.LoginStatusContext;
 import kr.ac.jejunu.distance.GpsDistanceCalculator;
 import kr.ac.jejunu.model.Document;
 import kr.ac.jejunu.model.Position;
@@ -28,13 +29,16 @@ public class DocumentListController {
     @Autowired
     private GpsDistanceCalculator gpsDistanceCalculator;
 
+    @Autowired
+    private LoginStatusContext loginStatusContext;
+
     public void setRepository(DocumentRepository repository) {
         this.repository = repository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public String allDocuments(@SessionAttribute(required = false) User user, Model model){
-        setUserInformation(user, model);
+        loginStatusContext.setUserInformation(user, model);
 
         List<Document> documents = repository.findAll();
         model.addAttribute("documents", documents);
@@ -46,7 +50,7 @@ public class DocumentListController {
                                       @RequestParam double source_longitude, @RequestParam double source_latitude,
                                       @RequestParam double destination_longitude, @RequestParam double destination_latitude,
                                       Model model){
-        setUserInformation(user, model);
+        loginStatusContext.setUserInformation(user, model);
 
         Position searchSourcePosition = new Position(source_latitude, source_longitude);
         Position searchDestinationPosition = new Position(destination_latitude, destination_longitude);
@@ -68,31 +72,6 @@ public class DocumentListController {
             }
         }
         return documentList;
-    }
-
-
-    private void setUserInformation(User user, Model model) {
-        User userinfo;
-        String defaultImage = "/귤.jpeg";
-        String accountUrl;
-        String accountText;
-        if(user == null) {
-            userinfo = new User("Please Login", null, null, defaultImage);
-            accountText="Login";
-            accountUrl="/login";
-        }
-        else {
-            userinfo = user;
-            accountText="Logout";
-            accountUrl="/logout";
-        }
-
-        if(userinfo.getImageUrl() == null)
-            userinfo.setImageUrl(defaultImage);
-
-        model.addAttribute("user", userinfo);
-        model.addAttribute("accountUrl", accountUrl);
-        model.addAttribute("accountText", accountText);
     }
 }
 
