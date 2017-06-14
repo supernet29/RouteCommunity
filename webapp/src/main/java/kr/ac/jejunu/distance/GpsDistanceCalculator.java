@@ -1,10 +1,12 @@
 package kr.ac.jejunu.distance;
 
 import kr.ac.jejunu.model.Position;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by super on 2017-06-14.
  */
+@Component
 public class GpsDistanceCalculator {
     public double calculateDistance(Position a, Position b){
         double radiusOfEarthKm = 6371;
