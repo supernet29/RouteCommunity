@@ -27,6 +27,15 @@
                 </tbody>
             </table>
             <p><a href="/document">New Document</a></p>
+            <form action="/" method="post" class="search">
+                <p>
+                    <span class="label">Source latitude</span> <input type="text" name="source_latitude"/> <span class="label">Source longitude</span> <input type="text" name="source_longitude"/>
+                </p>
+                <p>
+                    <span class="label">Destination latitude</span> <input type="text" name="destination_latitude"/> <span class="label">Destination longitude</span> <input type="text" name="destination_longitude"/>
+                </p>
+                <input type="submit"/>
+            </form>
         </div>
     </main>
     <sub>
