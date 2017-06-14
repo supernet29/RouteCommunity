@@ -2,11 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
+    <title th:text="@{Document : {name}(name=${document.title})}">Document : name</title>
 </head>
 <body>
     <header>
         <h1>Route Community</h1>
     </header>
+    <sub>
+        <div class = "userinfo">
+            <img src="/귤.jpeg" th:attr="src=@{/userpicture/{url}(url=${user.imageUrl})}" />
+            <p class="name" th:text="${user.name}">Please login.</p>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
+                <li><a href="/">Main</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </div>
+    </sub>
     <main>
         <div class="document">
             <div class="info">
@@ -28,23 +43,12 @@
         </div>
         <div class="commentWriter">
             <form th:attr="action=@{/document/{id}/comment(id=${document.id})}" method="post">
-                <textarea name="comment"></textarea>
+                <span class="label">Comment:</span>
+                <input type="text" name="comment"/>
                 <input type="submit" value="Submit"/>
             </form>
         </div>
         <p><a href="/">Goto Main</a></p>
     </main>
-    <sub>
-        <div class = "userinfo">
-            <img src="/귤.jpeg" th:attr="src=${user.imageUrl}" />
-            <p class="name" th:text="${user.name}">Please login.</p>
-        </div>
-        <div class="navigation">
-            <ul>
-                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
-                <li><a href="/register">Register</a></li>
-            </ul>
-        </div>
-    </sub>
 </body>
 </html>

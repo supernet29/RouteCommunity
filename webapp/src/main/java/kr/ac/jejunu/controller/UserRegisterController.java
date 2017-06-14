@@ -31,7 +31,9 @@ public class UserRegisterController {
     @RequestMapping(method = RequestMethod.POST)
     public String registerUser(@ModelAttribute User user, @RequestParam(name = "image", required = false)MultipartFile file) throws IOException {
         if(file != null && !file.isEmpty()){
-            String path = saveFile(file);
+            String[] tokens = file.getOriginalFilename().split("\\.");
+            String extension = tokens[tokens.length-1];
+            String path = saveFile(file, user.getName(), extension);
             user.setImageUrl(path);
         }else{
             user.setImageUrl(null);
@@ -40,11 +42,12 @@ public class UserRegisterController {
         return "redirect:/";
     }
 
-    private String saveFile(@RequestParam(name = "image", required = false) MultipartFile file) throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream(new File("src/main/resources/static/" + file.getOriginalFilename()));
+    private String saveFile(MultipartFile file, String name, String extension) throws IOException {
+        String path = "/" + name + "." + extension;
+        FileOutputStream fileOutputStream = new FileOutputStream(new File("src/main/resources/static/userpicture" + path));
         BufferedOutputStream outputStream = new BufferedOutputStream(fileOutputStream);
         outputStream.write(file.getBytes());
         outputStream.close();
-        return "/" + file.getOriginalFilename();
+        return path;
     }
 }

@@ -2,12 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
     <title>RouteCommunity</title>
 </head>
 <body>
     <header>
         <h1>Route Community</h1>
     </header>
+    <sub>
+        <div class = "userinfo">
+            <img src="/귤.jpeg" th:attr="src=@{/userpicture/{url}(url=${user.imageUrl})}" />
+            <p class="name" th:text="${user.name}">Please login.</p>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
+                <li><a href="/">Main</a></li>
+                <li><a href="/register">Register</a></li>
+            </ul>
+        </div>
+    </sub>
     <main>
         <div class="document_list">
             <table>
@@ -37,17 +51,5 @@
             </form>
         </div>
     </main>
-    <sub>
-        <div class = "userinfo">
-            <img src="/귤.jpeg" th:attr="src=${user.imageUrl}" />
-            <p class="name" th:text="${user.name}">Please login.</p>
-        </div>
-        <div class="navigation">
-            <ul>
-                <li><a href="/login" th:href="${accountUrl}" th:text="${accountText}">Login</a></li>
-                <li><a href="/register">Register</a></li>
-            </ul>
-        </div>
-    </sub>
 </body>
 </html>
