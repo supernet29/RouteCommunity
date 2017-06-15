@@ -35,8 +35,8 @@ public class DocumentRepositoryTest {
 
         long id = 1L;
         User writer = userRepository.findOne(1L);
-        Position source= new Position(0, 0);
-        Position destination = new Position(1, 1);
+        Position source= new Position(33.49182363501188, 126.59230224245964);
+        Position destination = new Position(33.45579878691985,126.5614934326073 );
 
         Document document = documentRepository.findOne(id);
 
@@ -66,9 +66,4 @@ public class DocumentRepositoryTest {
         documentRepository.save(document);
     }
 
-    @Test
-    public void getAllDocument() throws Exception{
-        List<Document>documents = documentRepository.findAll();
-        assertThat(documents.size(), is(1));
-    }
 }
