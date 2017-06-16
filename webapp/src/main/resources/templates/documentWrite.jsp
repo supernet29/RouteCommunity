@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
     <link rel="stylesheet" type="text/css" href="/css/Sub.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/DocumentWrite.css"/>
     <link rel="stylesheet" type="text/css" href="/css/Map.css"/>
     <title> Write Document </title>
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=" th:attr="src=@{//apis.daum.net/maps/maps3.js?apikey={key}(key=#{map.key})}"></script>

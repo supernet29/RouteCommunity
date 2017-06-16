@@ -1,0 +1,7 @@
+.document, .content{
+ margin: 5px;
+}
+.content textarea{
+    width:100%;
+    height:300px;
+}

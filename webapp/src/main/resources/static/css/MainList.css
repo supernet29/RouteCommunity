@@ -8,3 +8,8 @@
    border: 1px solid black;
 }
 
+.search{
+    margin:5px;
+    border:black 1px solid;
+    text-align:center;
+}

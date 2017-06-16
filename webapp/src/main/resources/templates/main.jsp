@@ -48,7 +48,7 @@
             <a href="/document">New Document</a>
         </div>
         <div class = "search">
-            <form action="/" method="post" class="search">
+            <form action="/" method="post" >
                 <div class="map">
                     <div id="map"></div>
                     <div class="pollSelector">

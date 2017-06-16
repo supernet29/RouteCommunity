@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <link rel="stylesheet" type="text/css" href="/css/RouteCommunity.css"/>
     <link rel="stylesheet" type="text/css" href="/css/Sub.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/Document.css"/>
     <link rel="stylesheet" type="text/css" href="/css/Map.css"/>
     <title th:text="@{Document : {name}(name=${document.title})}">Document : name</title>
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=" th:attr="src=@{//apis.daum.net/maps/maps3.js?apikey={key}(key=#{map.key})}"></script>
@@ -28,7 +29,7 @@
     <main>
         <div class="document">
             <div class="info">
-                <p><span class="label">Title</span> <span th:text="${document.title}">title</span></p>
+                <p><span class="label">Title : </span> <span th:text="${document.title}">title</span></p>
                 <div class="map">
                     <div id="map"></div>
                 </div>
@@ -37,7 +38,8 @@
                 <p class="label">Content</p>
                 <p class="content" th:text="${document.content}">abc</p>
             </div>
-            <p><a href="#" th:href="@{/document/{id}/remove(id=${document.id})}">remove</a></p>
+            <p><a href="#" th:href="@{/document/{id}/remove(id=${document.id})}">Remove</a></p>
+            <p><a href="/">Goto Main</a></p>
         </div>
         <div class="comments">
             <div class="comment" th:each="comment : ${comments}">
@@ -52,7 +54,6 @@
                 <input type="submit" value="Submit"/>
             </form>
         </div>
-        <p><a href="/">Goto Main</a></p>
     </main>
     <script th:inline="javascript">
     		var container = document.getElementById('map');

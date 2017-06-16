@@ -1,0 +1,13 @@
+.document, .comments, .commentWriter{
+    border: black 2px solid;
+}
+
+.comment{
+    margin:5px;
+    border: black 1px solid;
+}
+
+.content p, .comment p{
+    margin: 5px;
+    border: #d3d3d3 1px solid;
+}
